@@ -1,0 +1,26 @@
+package com.org.inti;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+
+@Configuration
+@EnableWebSecurity(debug = true)
+public class SpringSecurityConfig {
+     void setuproles() {
+    	 ArrayList<GrantedAuthority> roles=new ArrayList<>();
+    	 roles.add(new SimpleGrantedAuthority("admin"));
+    	 roles.add(new SimpleGrantedAuthority("user"));
+    	 //roles.add(new SimpleGrantedAuthority("admin"));
+    	 
+    	 
+    	 
+    	 UserDetails user=new User("jagga", "abc123", roles);
+     }
+}
